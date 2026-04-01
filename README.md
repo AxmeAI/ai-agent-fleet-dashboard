@@ -24,6 +24,8 @@ What you have today: 12 browser tabs, 4 CLI tools, and a spreadsheet someone upd
 
 ## The Solution
 
+![Agent Mesh Dashboard](mesh-dashboard.png)
+
 AXME Agent Mesh gives you a unified dashboard for your entire agent fleet. Every agent registers with a heartbeat. The dashboard shows them all in real time.
 
 ```
