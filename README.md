@@ -28,26 +28,6 @@ What you have today: 12 browser tabs, 4 CLI tools, and a spreadsheet someone upd
 
 AXME Agent Mesh gives you a unified dashboard for your entire agent fleet. Every agent registers with a heartbeat. The dashboard shows them all in real time.
 
-```
-+--------------------------------------------------------+
-|  AXME Agent Mesh Dashboard         mesh.axme.ai        |
-+--------------------------------------------------------+
-| Agents: 52 total | 48 healthy | 3 degraded | 1 dead    |
-| Cost today: $142.30 | MTD: $3,847.12                   |
-+--------------------------------------------------------+
-| Name              | Status  | Cloud | Cost/hr | Uptime |
-|-------------------|---------|-------|---------|--------|
-| data-pipeline-01  | healthy | GCP   | $2.40   | 14d    |
-| support-bot-prod  | healthy | AWS   | $8.10   | 7d     |
-| code-reviewer     | degraded| GCP   | $0.90   | 2d     |
-| invoice-processor | dead    | Azure | $0.00   | 0m     |
-| research-agent-03 | healthy | GCP   | $1.20   | 5d     |
-| ...               |         |       |         |        |
-+--------------------------------------------------------+
-| [Search] [Filter: status] [Filter: cloud] [Kill Agent] |
-+--------------------------------------------------------+
-```
-
 ### What the dashboard gives you
 
 - **Agents table** -- all registered agents with name, status, cloud, framework, team, cost, uptime
