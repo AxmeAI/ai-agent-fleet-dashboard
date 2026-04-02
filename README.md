@@ -122,35 +122,22 @@ axme mesh dashboard
 # https://mesh.axme.ai
 ```
 
-### 4. CLI fleet commands
+### 4. Open the dashboard
 
 ```bash
-# List all agents in your mesh
-axme mesh agents
-
-# Filter by status
-axme mesh agents --status degraded
-
-# Filter by cloud
-axme mesh agents --cloud gcp
-
-# Kill a stuck agent
-axme mesh kill data-pipeline-01
-
-# Show cost summary
-axme mesh cost --period today
-
-# Show cost by team
-axme mesh cost --group-by team --period mtd
+# Open dashboard in browser with automatic SSO
+axme mesh dashboard
 ```
+
+Kill, resume, set policies - all from the dashboard UI at [mesh.axme.ai](https://mesh.axme.ai). Or use the Python/TypeScript/Go/Java/.NET SDK programmatically.
 
 ## How It Works
 
-1. **Registration** -- each agent calls `register_agent()` on startup with its identity and metadata
-2. **Heartbeat** -- the SDK sends a heartbeat every N seconds with health status and cost metrics
+1. **Registration** -- agents auto-register when they send their first heartbeat via the SDK
+2. **Heartbeat** -- the SDK sends a heartbeat every 30 seconds with buffered metrics (intents, latency, cost)
 3. **Dashboard** -- the web UI at mesh.axme.ai reads the mesh state and renders the fleet view
-4. **Kill signal** -- when you click Kill (or run `axme mesh kill`), AXME sends a shutdown intent to the agent via the standard intent delivery mechanism
-5. **Policy enforcement** -- spending caps and rate limits are checked on every heartbeat; violations trigger alerts or automatic throttling
+4. **Kill signal** -- when you click Kill in the dashboard, the gateway blocks all intents to/from that agent
+5. **Policy enforcement** -- cost limits and action allowlists are checked on every new intent; breaches return HTTP 429 or 403
 
 ## Agent Lifecycle States
 
